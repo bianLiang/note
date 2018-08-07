@@ -1,0 +1,47 @@
+【搭建开发开发环境】
+npm install --global vue-cli
+vue init webpack my-project
+npm install (有依赖包不执行）
+npm run dev
+
+【使用v-for 报 Elements in iteration expect to have 'v-bind:key'错误处理】
+<li v-for="item in items" :key="item.id">{{ item }}</li>
+
+【报Expected indentation of 0 spaces but found 2  错误】
+一般都是书写格式错误
+
+【标签里绑定数据，注意】
+v-bind:href="url"
+
+【获取输入表单的内容】
+<input type="text" v-model="mymessage" @input="passData(mymessage)"> 
+mymessage就是value值
+
+【兄弟组件传值】
+父
+import Vue from 'vue'
+export var bus = new Vue()
+
+子
+ 将值传出：bus.$emit('globalEvent', this.mymessage) 
+ 接收：  bus.$on('globalEvent', (val) => {val就是传过来的值})
+
+【使用Vuex】
+https://segmentfault.com/a/1190000009404727
+安装：npm install vuex --save
+然后 , 在 main.js 中加入 :
+import vuex from 'vuex'
+Vue.use(vuex);
+var store = new vuex.Store({//store对象
+    state:{
+        show:false
+    }
+})
+再：
+new Vue({
+  el: '#app',
+  router,
+  store,//使用store
+  template: '<App/>',
+  components: { App }
+})

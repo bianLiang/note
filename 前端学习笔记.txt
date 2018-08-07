@@ -1,0 +1,158 @@
+AMD (RequireJS代表)  异步模块定义，它是 依赖前置 (因为依赖必须一开始就写好)会先 尽早地执行(依赖)模块 ，
+ 		     相当于所有的require都被提前了，它的 require 分全局和局部， 一个API当多个用 。
+例：　require([module], callback);   module：需要加载的模块。  callback：回调；
+
+CMD (SeaJS代表)   一个模块就是一个文件；它推崇 依赖就近 想什么时候 require 就什么时候加载，实现了 懒加载，
+                  延迟执行 ；没有全局 require， 每个API都简单纯粹 。
+
+
+
+
+CommonJS规范  例： var math = require('math'); 　math.add(2,3);
+
+
+
+
+
+【angular url参数传递 以及获取】
+
+传递：public router: Router
+const urlObj = {
+      queryParams: {'key': key }
+    };
+that.router.navigate(['/template-preview'], urlObj);
+
+
+获取：import { ActivatedRoute, Router } from '@angular/router'; 
+      private routeInfo: ActivatedRoute,
+
+this.routeInfo.queryParams.subscribe(params => {
+      console.log(params );
+    });
+
+【文件上传预览功能】
+
+const reader = new FileReader();
+    // reader.readAsDataURL(e.files[0]);
+    reader.readAsText(e.files[0]);
+    console.log(reader.result);
+    reader.onload = function() {
+      console.log(this.result);
+    };
+
+【转style行内样式innerHTML】
+ import { DomSanitizer } from '@angular/platform-browser';
+ private sanitizer: DomSanitizer
+ that.sanitizer.bypassSecurityTrustHtml(html结构string);
+
+
+【contenteditable设置placeholder的输入提示语】
+.con:empty:before{ 
+    content: '说点啥好呢？'; 
+    color: gray; 
+} 
+.con:focus:before{
+    content:none;
+}
+【contenteditable去掉边框】
+style="outline: none;"
+
+
+【系统选择事件，点击选择，再点击取消】
+ selectText(containerid, type) {
+    if (type === 'txt') {
+      if (window.getSelection().toString().length > 0) {
+        this.selection = false;
+        return false;
+      } else {
+        if (window.getSelection) {
+          const selection = window.getSelection();
+          const range = document.createRange();
+          range.selectNodeContents(containerid);
+          selection.removeAllRanges();
+          selection.addRange(range);
+          this.selection = true;
+        }
+      }
+    } else {
+      window.getSelection().removeAllRanges();
+    }
+  }
+
+
+【css英文连续英文字母换行】
+ word-break:break-all;
+
+【去除input默认样式】
+style="outline:none;border-style:none"
+
+【更改滚动条样式】
+#style-2::-webkit-scrollbar-track {
+     background-color: #F5F5F5;
+     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.22);
+}
+/*定义滚动条高宽及背景*/
+#style-2::-webkit-scrollbar{
+ width: 10px;
+ background-color: rgba(0, 0, 0, 0.34);
+}
+/*定义滚动条*/
+#style-2::-webkit-scrollbar-thumb{
+ background-color: #8b8b8b;
+ border-radius: 10px;
+}
+
+
+【angular4更改html样式】
+@ViewChild('box') _box: ElementRef;
+private renderer: Renderer,
+this.renderer.setElementStyle(this._box.nativeElement, 'height', '100px');
+
+【angular4将字符串转成innerHTML能用的类型】
+    import { DomSanitizer } from '@angular/platform-browser';
+    private sanitizer: DomSanitizer,
+    his.sanitizer.bypassSecurityTrustHtml(string);
+
+【使用[(ngModel)]需要引入的模块】
+import {FormsModule} from '@angular/forms';
+【解决使用[(ngModel)]报错】
+在input标签中使用[ngModelOptions]="{standalone: true}"
+
+【判断鼠标在不在某div内部】
+ const div = document.getElementById('textarea');
+  const x = event.clientX;
+  const y = event.clientY;
+  const divx1 = div.offsetLeft;
+  const divy1 = div.offsetTop;
+  const divx2 = div.offsetLeft + div.offsetWidth;
+  const divy2 = div.offsetTop + div.offsetHeight;
+  if ( x < divx1 || x > divx2 || y < divy1 || y > divy2){
+    console.log('不再内部');
+  }
+
+【angular自定义html结构绑定数据方式】
+ const html = `<span>${data.text}</span>`;
+
+【判断map对象是否为空】
+if (JSON.stringify(that.nodeDataMap) === JSON.stringify({})) {}
+
+【拆分字符串，前一部分后一部分】
+const values = this.value['web_url'].split('://');
+    console.log(values[0]);
+    console.log(values[1]);
+
+【匹配第一次出现特殊字符里的内容】
+const result = string.match(/-(.*?)-/)
+console.log(result[1])
+
+【angular整个组件绑定按键事件】
+import { HostListener } from '@angular/core';
+ @HostListener('document:keyup', ['$event'])
+  deleteSelecte(event: KeyboardEvent) {
+    console.log(event.keyCode);
+  }
+【angular路由问题】
+在子路由下进行浏览器回退事件，回退到父路由中，父路由不再执行ngOnInit()
+
+【禁止点击div】
+style="pointer-events: none;"

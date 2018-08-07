@@ -1,0 +1,51 @@
+【启动服务登陆数据库】 密码123456 必须以管理员身份运行
+net start mysql
+mysql -uroot -p （这步是输入密码）
+
+【退出数据库】
+exit 或 quit
+
+【停止服务】
+net stop mysql
+
+【修改密码】
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+
+【刷新数据】
+flush privileges;
+
+
+【创建数据库】
+CREATE DATABASE 库名;
+
+【建立数据表】
+USE 库名;
+CREATE TABLE 表名 (字段名 VARCHAR(20), 字段名 CHAR(1));
+
+【删除数据库】
+
+mysql> DROP DATABASE 库名;
+
+【删除数据表】
+
+mysql> DROP TABLE 表名;
+
+【将表中记录清空】
+
+mysql> DELETE FROM 表名;
+
+【往表中插入记录】
+
+mysql> INSERT INTO 表名 VALUES ("hyq","M");
+
+【更新表中数据】
+
+mysql-> UPDATE 表名 SET 字段名1='a',字段名2='b' WHERE 字段名3='c';
+
+【查询数据】
+SELECT * FROM obj WHERE A=14; 查行
+SELECT A,B FROM obj;  查列
+
+【更改字段名】
+假定表名为test，需要更改的列名为  date，想要更改为birthday varchar（20）
+alter table test change column date birthday varchar(20);

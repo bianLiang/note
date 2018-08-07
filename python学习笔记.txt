@@ -1,0 +1,4 @@
+【解决cgi中文乱码】
+在开头加上以下代码解决
+import codecs, sys 
+sys.stdout = codecs.getwriter('utf8')(sys.stdout.buffer)
