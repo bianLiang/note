@@ -14,9 +14,13 @@ git rebase --abort
 git push -f   强制覆盖所有commit
 
 
-版本回滚：it reset --hard 
+版本回滚：git reset --hard 
 
 查看用户名和邮箱地址：git config user.name  git config user.email
 
 修改用户名和邮箱地址： git config --global user.name "username"   git config --global user.email "email"
 
+撤销
+9ffde128343eb27f0c9d6f1fcfcafde38e0257bb
+赋值
+adc00a5716696a5fe70f0b561e25acc94b8c470f

@@ -14,6 +14,11 @@ ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password
 【刷新数据】
 flush privileges;
 
+【查看所有数据库】
+show databases;
+
+
+
 
 【创建数据库】
 CREATE DATABASE 库名;

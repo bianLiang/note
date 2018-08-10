@@ -6,3 +6,49 @@ create-react-app my-app
 cd my-app
 
 npm start
+
+【标签内class改为className】
+
+【渲染数组】
+key值是必须的，否则会报警告
+ <div>
+    {this.books.map((book, index) => {
+      return (
+        <div key={index}>
+          <div>书名：{book.bookname}</div>
+          <div>出版时间：{book.time}</div>
+          <hr />
+        </div>
+      )
+    })}
+ </div>
+
+ 【使用context传递数据】
+ import PropTypes from 'prop-types'
+ 定义context组件：
+  getChildContext() {
+    return {test: '这是从祖父那传递过来的数据！'};
+  }
+  这是组件名称.childContextTypes = {
+  test: PropTypes.string
+};
+
+子组件：
+SunMessage.contextTypes = {
+    test: PropTypes.string,
+};
+
+<h2>{ this.context.test }</h2>
+
+【子组件向父组件传值】
+子组件：
+<input onChange={this.props.handleEmail}/>
+父组件：
+handleEmail (event) {
+    this.setState({email: event.target.value});
+}
+<div>
+  从子组件传来的用户邮箱：{this.state.email}
+</div>
+
+
