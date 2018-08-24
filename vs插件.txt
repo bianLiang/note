@@ -1,0 +1,53 @@
+Angular UI Bootstrap Snippets
+
+angular2-inline
+
+Angular v6 Snippets
+
+angular2-switcher
+
+AngularDoc for Visual Studio Code
+
+Auto Close Tag
+
+Auto Import
+
+Auto Rename Tag
+
+Beautify
+
+Bootstrap 3 Snippets
+
+CSS Peek
+
+Debugger for Chrome
+
+EditorConfig for VS Code
+
+ES7 React/Redux/GraphQL/React-Native snippets
+
+HTML Boilerplate
+
+HTML CSS Support
+
+IntelliSense for CSS class names in HTML
+
+JavaScript (ES6) code snippets
+
+JavaScript Atom Grammar
+
+json2ts
+
+Less IntelliSense
+
+npm
+
+Path Intellisense
+
+TSLint
+
+TypeScript Hero
+
+
+
+

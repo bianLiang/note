@@ -18,8 +18,6 @@ flush privileges;
 show databases;
 
 
-
-
 【创建数据库】
 CREATE DATABASE 库名;
 

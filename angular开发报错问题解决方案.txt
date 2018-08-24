@@ -1,0 +1,67 @@
+1、 Cannot find module 'webpack/lib/node/NodeTemplatePlugin'
+
+解决办法：先npm uninstall webpack -g 卸载     再本项目npm install webpack   安装
+
+
+
+2、缺少字体图标模块依赖
+
+解决办法：先npm install --save font-awesome  在angular-cli.json文件引入"apps": [
+          {
+             "root": "src",
+             "outDir": "dist",
+             ....
+             "styles": [
+                "styles.css",
+                "../node_modules/bootstrap/dist/css/bootstrap.css",
+                "../node_modules/font-awesome/css/font-awesome.css" // -here webpack will automatically build a link css element out of this!?
+             ],
+             ...
+         }
+       ]
+
+],
+
+
+3、引入crypto-js加密插件，
+
+解决办法：npm install crypto-js
+          npm install @types/crypto-js --save-dev
+          然后引入文件方法：
+
+             import * as CryptoJS from 'crypto-js';
+          要么
+
+          import CryptoJS = require('crypto-js');
+
+
+4、引入ng2-bootstrap插件
+
+解决办法：1、npm install ng2-bootstrap --save
+          2、在主模块中导入，需要的模块（src/app/app.module.ts）
+             import { AlertModule } from 'ng2-bootstrap';
+
+          3、在angular-cli.json中配置样式文件
+
+            "styles": [
+                "styles.css",
+                "../node_modules/bootstrap/dist/css/bootstrap.min.css"
+              ]
+
+5、引入ng2-validators插件
+
+解决办法：npm install ng2-validators --save
+
+6、安装和卸载模块
+
+npm安装模块
+【npm install xxx】利用 npm 安装xxx模块到当前命令行所在目录；
+【npm install -g xxx】利用npm安装全局模块xxx；
+本地安装时将模块写入package.json中：
+
+【npm install xxx】安装但不写入package.json；
+【npm install xxx –save】 安装并写入package.json的”dependencies”中；
+【npm install xxx –save-dev】安装并写入package.json的”devDependencies”中。
+npm 删除模块
+【npm uninstall xxx】删除xxx模块； 
+【npm uninstall -g xxx】删除全局模块xxx；

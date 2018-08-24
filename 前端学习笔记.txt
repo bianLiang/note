@@ -156,3 +156,31 @@ import { HostListener } from '@angular/core';
 
 【禁止点击div】
 style="pointer-events: none;"
+
+【一行居中，多行居左】
+div{
+    padding: 2rem;
+    text-align: center;
+}
+div p {
+    width : auto; 
+    display : inline-block;
+    text-align : left;
+}
+
+【获取url路径】
+location.pathname
+
+【单行超出部分省略号显示】
+overflow: hidden;
+text-overflow:ellipsis;
+white-space: nowrap;
+
+【多行超出的部分省略号显示】
+display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 3;
+overflow: hidden;
+
+【echart异步回调取回数据重新绘制图表】
+Chart.setOption(that.option, true);
