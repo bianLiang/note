@@ -184,3 +184,163 @@ overflow: hidden;
 
 【echart异步回调取回数据重新绘制图表】
 Chart.setOption(that.option, true);
+
+【获取前几天或者几个月的所有日期】
+getDay() {
+    const lastMonth = [];
+    for (let i = 0; i < 90; i++) {
+      lastMonth.unshift(new Date(new Date()
+      .setDate(new Date().getDate() - i))
+      .toLocaleString().substring(0, 9));
+    }
+    return lastMonth;
+  }
+
+【中国标准时间格式化】
+var d = new Date('Thu May 12 2016 08:00:00 GMT+0800 (中国标准时间)');  
+
+youWant=d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
+
+【去掉按钮选中边框】
+.timeInterval:focus{
+  outline: none;
+} 
+
+【计算两个日期之间的天数 时间格式是xxxx-xx-xx】
+DateDiff(sDate1,  sDate2) {
+    let  aDate,  oDate1,  oDate2, iDays;
+    aDate  =  sDate1.split('-');
+    oDate1  =  new  Date(aDate[1]  +  '-'  +  aDate[2]  +  '-'  +  aDate[0]);
+    aDate  =  sDate2.split('-');
+    oDate2  =  new  Date(aDate[1]  +  '-'  +  aDate[2]  +  '-'  +  aDate[0]);
+    iDays  =  Math.abs(oDate1 - oDate2) / 1000 / 60 / 60 / 24;
+    return  iDays;
+  }
+
+【echarts随屏幕自适应】
+window.onresize = that.Chart.resize;
+
+【导出csv表格数据】
+ exportCsv(obj) {
+    const title = obj.title;
+    const titleForKey = obj.titleForKey;
+    const data = obj.data;
+    const str = [];
+    str.push(obj.title.join(',') + '\n');
+    for (let i = 0; i < data.length; i++) {
+      const temp = [];
+      for (let j = 0; j < titleForKey.length; j++) {
+        temp.push(data[i][titleForKey[j]]);
+      }
+      str.push(temp.join(',') + '\n');
+    }
+    const uri =
+      'data:text/csv;charset=utf-8,' + encodeURIComponent(str.join(''));
+    const downloadLink = document.createElement('a');
+    downloadLink.href = uri;
+    downloadLink.download = 'export.csv';
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+  }
+
+ onClick() {
+    this.exportCsv({
+      title: ['第一列', '第二列'],
+      titleForKey: ['num1', 'num2'],
+      data: [
+        {
+          num1: '123',
+          num2: 'fff'
+        },
+        {
+          num1: '123',
+          num2: 'fff'
+        },
+        {
+          num1: '123',
+          num2: 'fff'
+        }
+      ]
+    });
+  }
+
+【修改滚动条样式】
+.box::-webkit-scrollbar-track {
+ background-color: #F5F5F5;
+ /* -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.22); */
+}
+/*定义滚动条高宽及背景*/
+.box::-webkit-scrollbar{
+ width: 2px;
+ background-color: rgba(0, 0, 0, 0.34);
+}
+/*定义滚动条*/
+.box::-webkit-scrollbar-thumb{
+ background-color: #8b8b8b;
+ border-radius: 10px;
+
+}
+
+【获取系统时间 xxxx-xx-xx xx:xx:xx】
+ getTime () {
+    const d = new Date();
+    const year = d.getFullYear();
+    const mouth = d.getMonth() + 1;
+    const day = d.getDate();
+    const hour = d.getHours() < 10 ? '0' + d.getHours() : d.getHours();
+    const minutes = d.getMinutes() < 10 ? '0' + d.getMinutes() : d.getMinutes();
+    const second = d.getSeconds() < 10 ? '0' + d.getSeconds() : d.getSeconds();
+    const curTime = year + '-' + mouth + '-' + day + ' ' + hour + ':' + minutes + ':' + second;
+    return curTime;
+  }
+
+【随机抽取数组中不重复项】
+getArrayItems(arr, num) {
+    //新建一个数组,将传入的数组复制过来,用于运算,而不要直接操作传入的数组;
+    var temp_array = new Array();
+    for (var index in arr) {
+        temp_array.push(arr[index]);
+    }
+    //取出的数值项,保存在此数组
+    var return_array = new Array();
+    for (var i = 0; i<num; i++) {
+        //判断如果数组还有可以取出的元素,以防下标越界
+        if (temp_array.length>0) {
+            //在数组中产生一个随机索引
+            var arrIndex = Math.floor(Math.random()*temp_array.length);
+            //将此随机索引的对应的数组元素值复制出来
+            return_array[i] = temp_array[arrIndex];
+            //然后删掉此索引的数组元素,这时候temp_array变为新的数组
+            temp_array.splice(arrIndex, 1);
+        } else {
+            //数组中数据项取完后,退出循环,比如数组本来只有10项,但要求取出20项.
+            break;
+        }
+    }
+    return return_array;
+}
+
+【获取最近24小时】
+for (let i = 0; i < 24 * that.numberDays; i++) {
+          const h = new Date(new Date().getTime() - i * 60 * 60 * 1000).getHours();
+          const m = new Date(new Date().getTime() - i * 60 * 60 * 1000).getMinutes();
+          const s = new Date(new Date().getTime() - i * 60 * 60 * 1000).getSeconds();
+          dataList.unshift(h + ':' + m + ':' + s);
+        }
+
+【获取最近多少天】
+for (let i = 0; i < that.numberDays; i++) {
+          dataList.unshift(new Date(new Date()
+          .setDate(new Date().getDate() - i))
+          .toLocaleString().substring(0, 9));
+        }
+
+【获取最近几个月】
+for (let i = 0; i < that.numberMonth; i++) {
+          dataList.unshift(new Date(new Date()
+          .setMonth(new Date().getMonth() - i))
+          .toLocaleString().substring(0, 9));
+        }
+【input的type设置为number的时候，maxlength无效】
+<input type="number" oninput="if(value.length>11)value=value.slice(0,11)"/>

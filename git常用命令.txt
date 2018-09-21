@@ -24,3 +24,6 @@ git push -f   强制覆盖所有commit
 9ffde128343eb27f0c9d6f1fcfcafde38e0257bb
 赋值
 adc00a5716696a5fe70f0b561e25acc94b8c470f
+
+
+%s/pick/s/g
