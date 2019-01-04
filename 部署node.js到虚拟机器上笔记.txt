@@ -1,0 +1,61 @@
+【虚拟器nodejs环境部署】
+第一种：
+参考：https://blog.csdn.net/tanga842428/article/details/73277739
+64位
+rpm -ivh http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+
+32位
+rpm -ivh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
+
+导入 key:
+rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
+
+添加 remi 源
+rpm -ivh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
+rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-remi
+
+安装完成后,执行
+curl --silent --location https://rpm.nodesource.com/setup_11.x | bash -
+yum -y install nodejs
+
+第二种：
+
+【nodejs更新升级】
+参考：https://blog.csdn.net/zeng133/article/details/76670343
+
+【使用xshell上传文件】
+参考：https://www.cnblogs.com/nbf-156cwl/p/8641165.html
+1：首先连接上一台Linux主机
+2：输入rz命令，看是否已经安装了lrzsz，如果没有安装则执行  yum   -y  install  lrzsz命令进行安装。
+3：安装成功后，输入rpm命令确认是否正确安装
+4： 使用 rz -y命令进行文件上传，此时会弹出上传的窗口：
+
+【在服务端运行nodejs以及接口访问需要注意的地方】
+1、本地测试需要关闭防火墙，也可以添加一些规则开放一些端口（方法待定）
+2、查看防火墙状态systemctl status firewalld  关闭防火墙systemctl stop firewalld
+查看端口信息ifconfig
+获取root权限su root
+查看历史命令history 
+3、关闭服务端node.js但进程仍然是在执行中需要强制结束进程，命令如下：
+查看node命令的进程，ps -ef |grep node
+强制结束 kill -9 40994（这是进程号码）
+
+ifcfg-eno16777736
+
+永久关闭防火墙：systemctl disable firewalld
+		setenforce 0
+
+开启防火墙： systemctl emabled firewalld
+		setenforce 1
+【安装mysql】
+wget https://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.42-linux-glibc2.12-x86_64.tar.gz
+
+【永远启动服务】
+参考：https://www.jianshu.com/p/08d055d69a68
+1、npm i forever -g
+2、其实要找到node_modules里面的forever文件，然后找到bin，接着你就看见启动命令绿色的forever啦！！！为了方便使用，我把它加到了$PATH里面ln -s/test/node_modules/forever/bin/forever?/usr/local/bin
+
+
+3、forever start test.js 来启动
+   forever stop test.js 来停止
+

@@ -1,0 +1,95 @@
+【zui】
+	一个基于bootstrap开发的web开发库，提供基本的页面样式以及页面功能实现。
+地址：http://zui.sexy/#/
+
+【webAssembly】
+	WebAssembly是一种新的适合于编译到Web的，可移植的，大小和加载时间高效的格式，是一种新的字节码格式。它的缩写是”.wasm”，可以加快js在web端的渲染速度。
+
+地址：https://github.com/WebAssembly/design
+
+【zrender】
+	基于canvas开发的轻量级画布，百度公司开发。
+
+地址：https://ecomfe.github.io/zrender-doc/public/api.html
+
+【NG-ZORRO】
+	结合angular开发的web页面布局和功能库，同时对应的也有结合react开发的版本，阿里开发。
+angular地址：https://ng.ant.design/docs/introduce/zh
+react地址：https://ant.design/docs/react/introduce-cn
+
+【mock.js】
+	随机生成测试数据，可运行在个框架和原声之中，一般在开发阶段可使用。
+
+地址：http://mockjs.com/
+
+【faker】
+	与mock差不多的数据生成插件，两者可以任意使用，但一般会选择mock.js
+
+地址：https://github.com/fzaninotto/Faker
+【html2canvas】
+	前端截屏插件。
+
+地址：https://github.com/niklasvh/html2canvas
+
+【json-server】
+	可将本地json文件当作数据库，在本地起一个本地服务，进行增、删、改、查操作。
+
+地址：https://github.com/typicode/json-server
+学习地址：https://www.cnblogs.com/ys-wuhan/p/6387791.html
+
+【ngx-bootstrap】
+	基于bootstrap结合angular开发的web页面功能型插件。
+
+地址：http://ngx-bootstrap.com/#/getting-started
+
+【ngx-validators】
+	结合angular开发的表单验证插件，功能性不强，一般表单验证可以应付。
+地址：https://github.com/Nightapes/ngx-validators
+
+【img-cropper】
+	上传图片，截取固定区域。功能不完善有待提升。
+
+地址：https://github.com/cstefanache/angular2-img-cropper
+
+【node-sass】
+	自动编译scss文件。
+
+地址：https://github.com/sass/node-sass
+
+【rxjs】
+	数据观察者模式，一个数据变动即可被其订阅者检测到，也随之改变。
+
+地址：https://github.com/Reactive-Extensions/RxJS
+【插件汇总】
+	https://blog.csdn.net/qq_21423689/article/details/80999830
+	https://github.com/iamjoel/front-end-plugins#form
+	https://github.com/jobbole/awesome-javascript-cn#gesture
+
+【rasterizehtml】
+	可将html结构导入画布中，即转成图画格式。
+
+地址：https://github.com/cburgmer/rasterizeHTML.js
+
+【node-uuid】
+	随机生成加密的API，作为唯一识别码。
+
+地址：https://github.com/kelektiv/node-uuid
+
+
+【Vuex】
+	vue的数据处理插件
+
+地址：https://github.com/vuejs/vuex
+学习地址：https://vuex.vuejs.org/zh/guide/state.html
+
+【Simditor、wangEditor、bootstrap-wysiwyg】
+	富文本编辑器
+地址：
+https://simditor.tower.im/
+http://www.wangeditor.com/index.html
+http://www.bootcss.com/p/bootstrap-wysiwyg/
+
+【croppic】
+	图片截切插件
+
+地址：https://github.com/sconsult/croppic

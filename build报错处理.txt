@@ -1,0 +1,11 @@
+±¨´í£º
+
+ERROR in ./node_modules/echarts/lib/component/axis/AxisBuilder.js
+Module build failed: Error: Debug Failure. False expression.
+
+
+±¨´í£ºÄÚ´æÐ¹Â©
+node --max_old_space_size=4096 ./node_modules/@angular/cli/bin/ng build --prod --source-map
+
+"node_modules/bootstrap/dist/css/bootstrap.css",
+

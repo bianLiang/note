@@ -13,17 +13,19 @@ git rebase --abort
 
 git push -f   强制覆盖所有commit
 
-
+回滚版本时，一定要提交当前文件，不然会被强制删除
 版本回滚：git reset --hard 
 
 查看用户名和邮箱地址：git config user.name  git config user.email
 
 修改用户名和邮箱地址： git config --global user.name "username"   git config --global user.email "email"
 
-撤销
-9ffde128343eb27f0c9d6f1fcfcafde38e0257bb
-赋值
-adc00a5716696a5fe70f0b561e25acc94b8c470f
-
 
 %s/pick/s/g
+
+当前：
+aa02b8c618ccfb3ffcf87fc1bb6ce9f0c6225dd8
+
+f81d4981e3db1008012d35452d2cbf09ca98c41a
+
+9d87b1897712160ce48f50d287f61124d1c5e560   删除报错

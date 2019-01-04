@@ -1,0 +1,20 @@
+45.76.195.155
+端口：10001
+密码：19941201
+
+
+
+yum install golang
+go
+get -u -v github.com/shadowsocks/go-shadowsocks2
+
+
+开端口
+firewall-cmd --add-port=端口号/tcp
+ 
+
+cd go/bian
+nohup shadowsocks2 -s 'ss://AEAD_CHACHA20_POLY1305:你的密码@:端口号' -verbose &
+
+
+nohup ./go-shadowsocks2 -s 'ss://AEAD_CHACHA20_POLY1305:19941201@:10001' -verbose &

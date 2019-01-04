@@ -1,0 +1,3 @@
+ng serve --configuration=mock
+
+json-server --watch mock.json

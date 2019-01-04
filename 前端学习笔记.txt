@@ -30,6 +30,7 @@ this.routeInfo.queryParams.subscribe(params => {
       console.log(params );
     });
 
+或this.routeInfo.snapshot.queryParams['key']
 【文件上传预览功能】
 
 const reader = new FileReader();
@@ -344,3 +345,106 @@ for (let i = 0; i < that.numberMonth; i++) {
         }
 【input的type设置为number的时候，maxlength无效】
 <input type="number" oninput="if(value.length>11)value=value.slice(0,11)"/>
+
+【父组件调用子组件的方法和属性】
+<xma-time-selection #timeSC ></xma-time-selection>
+@ViewChild('timeSC', {read: TimeSelectionComponent}) timeSC: TimeSelectionComponent;
+
+【数组时间排序】
+  timeSorting(obj) {
+    for (let i = 0; i < obj.length; i++) {
+      obj[i].createdTime = obj[i].createdTime.substring(0, 16);
+    }
+    return obj;
+  }
+
+【绑定行内样式需要的方法】
+import { DomSanitizer } from '@angular/platform-browser';
+private sanitizer: DomSanitizer,
+trustHtml(string) {
+    return this.sanitizer.bypassSecurityTrustHtml(string);
+  }
+【获取鼠标选中的文字】
+window.getSelection().toString()
+
+【富文本编辑，添加超链接】
+const linkURL = prompt('请选中页面内容填写链接地址:', 'http://');
+const sText = document.getSelection();
+document.execCommand('createLink', true, linkURL);
+sText.anchorNode.parentElement.title = linkURL;
+sText.anchorNode.parentElement.target = '_blank';
+
+【匹配a标签有没有_bank】
+const re = /target="_*[a-z]*"/g;
+const rp = /<a/g;
+html = 【这里是要匹配的字段】.replace(re, `target="_bank"`);
+
+if (html.match(re)) {
+   html = html.replace(rp,  `<a target="_bank"`);
+} else {
+   // html = html.replace(re,  `<a target="_bank"`);
+  }
+
+【ES6字符串拼接】
+var name = `Your name is ${first} ${last}.`
+
+【ES7判断数组中是否含有某个值】
+let arr = ['react', 'angular', 'vue'];
+
+if (arr.includes('react'))
+{
+    console.log('react存在');
+}
+【ES8 async/await解决异步调用】
+login(userName) {
+   
+ return new Promise((resolve, reject) => {
+      
+  setTimeout(() => {
+           
+  resolve('1001');
+      
+    }, 600);
+});
+
+}
+
+
+
+*ES7解决方法
+doLogin(userName) {
+   
+ this.login(userName)
+
+        .then(this.getData)
+       
+        .then(result => {
+        
+            console.log(result)
+      
+          })
+
+}
+
+
+*ES8解决方法
+async doLogin2(userName) {
+    const userId=await this.login(userName);
+    const result=await this.getData(userId);
+}
+
+【ES8获取对象里的所有值 const obj = {a: 1, b: 2, c: 3};】
+const values=Object.values(obj1);
+console.log(values);//[1, 2, 3]
+
+【文字被复制、剪切提醒】
+ <p oncopy="alert('文字已被复制到剪贴板！')">这是一些文字</p>
+<input type="text" value="文字内容" oncut="alert('文字已被剪切！')" />
+
+【禁止向文本域粘贴内容】
+<input type="text" onpaste="return false;" />
+
+【angular运行不同端口命令】
+ng serve --port 4000
+【angular运行不同的环境】
+ng serve --configuration=test

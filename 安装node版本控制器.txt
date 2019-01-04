@@ -1,0 +1,59 @@
+【nvmw】
+
+	1、去github官网克隆
+	2、修改配置项
+		fget.js文件47行，XMLHTTP 改为ServerXMLHTTP
+
+		nvmw.bat文件137行 : x64改为win-x64 
+	22行if not defined NVMW_NODEJS_ORG_MIRROR (
+ 	set "NVMW_NODEJS_ORG_MIRROR=https://nodejs.org/dist"
+	)
+
+	if not defined NVMW_IOJS_ORG_MIRROR (
+ 	set "NVMW_IOJS_ORG_MIRROR=https://iojs.org/dist"
+	)
+-------------------------------改为-------------------------------------------
+	if not defined NVMW_NODEJS_ORG_MIRROR (
+ 	set "NVMW_NODEJS_ORG_MIRROR=http://npm.taobao.org/mirrors/node"
+	)
+
+	if not defined NVMW_IOJS_ORG_MIRROR (
+ 	set "NVMW_IOJS_ORG_MIRROR=http://npm.taobao.org/mirrors/iojs"
+	)
+
+	get_npm.js文件 第8行
+	var NVMW_NPM_MIRROR = process.env.NVMW_NPM_MIRROR || 'https://github.com/npm/npm/archive';
+----------------------------------改为--------------------------------------
+	var NVMW_NPM_MIRROR = process.env.NVMW_NPM_MIRROR || 'http://npm.taobao.org/mirrors/npm';
+	第44行-51行改为
+	 var pkgUri = "https://npm.taobao.org/mirrors/node/index.json";
+  wget(pkgUri, function (filename, pkg) {
+    if (filename === null) {
+      return noNpmAndExit();
+    }
+    var _pkg = JSON.parse(pkg);
+    for(var i = 0,n=_pkg.length;i<n;i++){
+        var obj = _pkg[i];
+        if(obj.version == binVersion){
+            downloadNpmZip(obj.npm);
+        }
+    }
+  })
+	
+	出现问题如下：
+		1、使用nvmw install 版本号  出现没有没有npm报错 does not include npm
+		解决地址：https://www.jianshu.com/p/82c5f3a39559
+		2、使用nvmw use 版本号   出现虽然切换成功，但是node -v显示未切换成功
+		解决办法：重启电脑
+
+【nvm】
+	官方下载nvm-setup.zip文件
+	需要先卸载电脑node，再安装，完成后重启。
+	nvm install 版本号
+	nvm list
+	nvm use 切换版本号
+	nvm us
+
+
+【n】
+	windows不支持

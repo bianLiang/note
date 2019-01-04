@@ -65,3 +65,13 @@ npm安装模块
 npm 删除模块
 【npm uninstall xxx】删除xxx模块； 
 【npm uninstall -g xxx】删除全局模块xxx；
+
+【ng build --prod --source-map】内存泄漏
+
+7、安装cli
+	指定版本：npm install -g @angular/cli@1.5.2
+	不指定：npm install -g @angular/cli
+	卸载：1、npm uninstall -g @angular/cli
+	      2、npm cache verify ，在低版本的nodejs里面清除缓存使用的命令是npm cache clean
+
+		

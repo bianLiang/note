@@ -17,9 +17,17 @@ flush privileges;
 【查看所有数据库】
 show databases;
 
+选定数据库
+use database_name
+查看所有表
+show tables
+查看表中内容
+select * from table_name
+
 
 【创建数据库】
 CREATE DATABASE 库名;
+create database
 
 【建立数据表】
 USE 库名;
@@ -52,3 +60,27 @@ SELECT A,B FROM obj;  查列
 【更改字段名】
 假定表名为test，需要更改的列名为  date，想要更改为birthday varchar（20）
 alter table test change column date birthday varchar(20);
+
+【启动mariadb】
+systemctl start mariadb
+
+【开机自动启动mariadb】
+systemctl enable mariadb
+
+【关闭自动启动mariadb】
+systemctl disable mariadb
+
+【解决个字段编码不一样】
+报错：Illegal mix of collations (latin1_swedish_ci,IMPLICIT) and (utf8_general_ci,COERCIBLE) for operation
+参考：https://blog.csdn.net/fx_hui_only/article/details/20068299
+
+show full columns from 表名; 查看表中各字段的字符编码；
+alter table 表名 convert to character set utf8; 设置症状表的字符编码；
+
+
+
+article
+
+id   title   author   imgurl   content
+
+
