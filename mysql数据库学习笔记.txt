@@ -79,8 +79,14 @@ alter table 表名 convert to character set utf8; 设置症状表的字符编码；
 
 
 
-article
+【备份与导入 注意以下所有命令就在终端或者xshell执行，不必进入数据库】
+本地备份远程：mysqldump --column-statistics=0 -h 45.76.195.155 -uroot -p123456 personalblog >blog.sql
+本地备份本地：mysqldump -uroot -p123456 --databases personalblog >lgol.sql
 
-id   title   author   imgurl   content
+还原方法一：mysql -uroot -p123456  db_name(这个数据库需要新创建) < d:\bak\0101.sql
+方法二(进入数据库执行）
+mysql > use db
+mysql > source d:\bak\0101.sql
+
 
 

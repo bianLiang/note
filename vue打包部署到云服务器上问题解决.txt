@@ -4,6 +4,15 @@
 
 2、如果你之前修改过router目录下的index.js文件中的mode:'hash'，在打包的时候请保持默认状态，或者删除mode这个属性让它自动。
 
+3、字体图标找不到 
+真实路径应该是
+xxx/static/fonts/icomoon.0125455.woff 
+浏览器实际加载路径为：
+xxx/static/css/static/fonts/icomoon.0125455.woff 
+在 build/webpack.prod.conf.js 中 extract :true 改为 fasle即可。
+
+4、音频视频文件命名必须是英文
+
 【服务端的后台语言部署】
 要指向访问上传的dist文件
 我用的nodejs代码如下

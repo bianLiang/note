@@ -1,0 +1,21 @@
+npm install -g @angular/cli
+npm install @angular/cli
+ng update @angular/cli
+
+ng update @angular/core
+
+
+以下是报错问题解决方案：
+
+解决报错：Your global Angular CLI version (6.1.4) is greater than your local
+version (1.6.4). The local Angular CLI version is used.
+
+To disable this warning use "ng config -g cli.warnings.versionMismatch false".
+The specified command update is invalid. For available options, see `ng help`.
+
+解决方法：npm install --save-dev @angular/cli@latest
+
+
+废除rxjs
+解决方法：
+npm install --save rxjs-compat

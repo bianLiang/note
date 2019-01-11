@@ -16,6 +16,7 @@ CommonJS规范  例： var math = require('math'); 　math.add(2,3);
 
 【angular url参数传递 以及获取】
 
+
 传递：public router: Router
 const urlObj = {
       queryParams: {'key': key }
