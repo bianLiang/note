@@ -5,6 +5,8 @@
 同步远程分支： git remote prune origin  
                git fetch origin
 
+同步远程所有分支到本地：git pull -p
+
 进入编辑模式：git rebase --edit-todo
 
 git rebase --continue

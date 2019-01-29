@@ -1,0 +1,4 @@
+¡¾°²×°¡¿
+npm install lodash --save
+npm install @types/lodash --save-dev
+import _ from 'lodash';
