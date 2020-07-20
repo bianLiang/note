@@ -15,6 +15,17 @@
     k、WebSocket
 
 ### ES6问题总结
+#### var let const的区别
+    var定义的变量，没有块的概念，可以跨块访问, 不能跨函数访问。
+    let定义的变量，只能在块作用域里访问，不能跨块访问，也不能跨函数访问。
+    const用来定义常量，使用时必须初始化(即必须赋值)，只能在块作用域里访问，而且修改。
+#### 箭头函数
+    1、箭头函数指向其父作用域，不指向调用时的this
+    2、箭头函数不能作为构造函数，不能是用new
+    3、箭头函数没有arguments、caller、callee
+    4、箭头函数通过call和apply不会改变this指向只会传入参数
+    5、箭头函数没有原型属性
+    6、箭头函数在ES6 class中声明的方法为实例方法，不是原型方法
 ### javascript问题总结
 #### 1、MVVM的理解
     即model数据模型 view视图 viewModel数据视图的同步对象的缩写，是一种前端开发的模式；
@@ -114,7 +125,8 @@
     DOM型 当浏览器收到源代码时便把HTML文本解析成DOM对象并执行，结果弹出/xss/消息框
     
     如何防止XSS攻击
-8、CSRF攻击
+#### 8、CSRF攻击
+#### 9、javascript垃圾回收机制
     
 ### vue问题总结
 #### 1、说说vue的生命周期
@@ -140,7 +152,7 @@
     f、provide/inject 适用于父子、隔代组件之间的传值在父组件定义一个provide里面写入数据，子组件使用Inject接受数据
     g、$parent / $children与 ref 适用于父子之间的传值
 #### 4、双向绑定原理
-
+    在new Vue的时候，在Observer中通过Object.defineProperty()达到数据劫持，代理所有数据的getter和setter属性，在每次触发setter的时候，都会通过Dep来通知Watcher，Watcher作为Observer数据监听器与Compile模板解析器之间的桥梁，当Observer监听到数据发生改变的时候，通过Updater来通知Compile更新视图,而Compile通过Watcher订阅对应数据，绑定更新函数，通过Dep来添加订阅者，达到双向绑定
 ### angular问题总结
 #### 2、angular生命周期
     生命周期也有8个，
